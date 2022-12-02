@@ -31,18 +31,18 @@ async function run() {
                 res.send(options);
             }),
 
-            app.get('/blogsData', async(req, res) => {
-                const query = {};
-                const options = await servicesOptionColection.find(query).toArray();
-                res.send(options);
-            })
+            // app.get('/blogsData', async(req, res) => {
+            //     const query = {};
+            //     const options = await servicesOptionColection.find(query).toArray();
+            //     res.send(options);
+            // })
 
-        app.post('/bookings', async(req, res) => {
-            const booking = req.body
-            console.log(booking);
-            const result = await bookingsCollection.insertOne(booking);
-            res.send(result);
-        })
+            app.post('/bookings', async(req, res) => {
+                const booking = req.body
+                console.log(booking);
+                const result = await bookingsCollection.insertOne(booking);
+                res.send(result);
+            })
     } finally {
 
     }
