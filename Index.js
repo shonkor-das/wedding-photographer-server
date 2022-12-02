@@ -21,32 +21,31 @@ async function run() {
         const servicesOptionColection = client.db('weddingPhotographer').collection('serviceOptions', 'galleryImage', 'blogsData');
         const bookingsCollection = client.db('weddingPhotographer').collection('bookings');
 
-        app.get('/serviceOptions', async (req, res) => {
+        app.get('/serviceOptions', async(req, res) => {
             const query = {};
             const options = await servicesOptionColection.find(query).toArray();
             res.send(options);
         });
 
-        app.get('/galleryImage', async (req, res) => {
-            const query = {};
-            const options = await servicesOptionColection.find(query).toArray();
-            res.send(options);
-        }),
+        app.get('/galleryImage', async(req, res) => {
+                const query = {};
+                const options = await servicesOptionColection.find(query).toArray();
+                res.send(options);
+            }),
 
-            app.get('/blogsData', async (req, res) => {
+            app.get('/blogsData', async(req, res) => {
                 const query = {};
                 const options = await servicesOptionColection.find(query).toArray();
                 res.send(options);
             })
 
-            app.post('/bookings', async (req, res) =>{
-                const booking = req.body
-                console.log(booking);
-                const result = await bookingsCollection.insertOne(booking);
-                res.send(result);
-            })
-    }
-    finally {
+        app.post('/bookings', async(req, res) => {
+            const booking = req.body
+            console.log(booking);
+            const result = await bookingsCollection.insertOne(booking);
+            res.send(result);
+        })
+    } finally {
 
     }
 }
